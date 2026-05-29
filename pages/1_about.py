@@ -5,9 +5,7 @@ st.title("О разработчике")
 col1, col2 = st.columns([1, 2])
 
 with col1:
-    # TODO: заменить на реальное фото
-    # st.image("assets/photo.jpg", width=250)
-    st.info("Фото будет добавлено позже")
+    st.image("./photo.jpg", width=250)
 
 with col2:
     st.markdown("""
@@ -15,7 +13,7 @@ with col2:
     **Группа:** _ФИТ-242_
 
     ---
-
+    
     ### Тема РГР
 
     **Разработка Web-приложения (дашборда) для инференса моделей ML и анализа данных**

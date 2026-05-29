@@ -1,0 +1,9 @@
+# Виртуальное окружение
+.venv/
+
+models/
+
+# Временные файлы CatBoost
+**/catboost_info/
+notebooks/*.tsv
+notebooks/*.json

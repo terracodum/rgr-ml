@@ -90,17 +90,17 @@ with tab_manual:
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        manufacturer_name = st.number_input("Производитель (код)", min_value=1, max_value=100, value=1)
+        manufacturer_name = st.number_input("Производитель (1-бюджетные, 2-средние, 3-премиум)", min_value=1, max_value=3, value=1)
         transmission = st.selectbox("Трансмиссия", [0, 1], format_func=lambda x: "Механика" if x == 0 else "Автомат")
         odometer_value = st.number_input("Пробег, км", min_value=0, max_value=1_000_000, value=100_000, step=5_000)
-        year_produced = st.number_input("Год выпуска", min_value=1990, max_value=2024, value=2015)
-        engine_capacity = st.number_input("Объём двигателя, л", min_value=0.5, max_value=8.0, value=2.0, step=0.1)
+        year_produced = st.number_input("Год выпуска", min_value=1950, max_value=2024, value=2015)
+        engine_capacity = st.number_input("Объём двигателя, л", min_value=0.5, max_value=10.0, value=2.0, step=0.1)
 
     with col2:
         engine_has_gas = st.selectbox("Газовое оборудование", [0, 1], format_func=lambda x: "Нет" if x == 0 else "Есть")
         has_warranty = st.selectbox("Гарантия", [0, 1], format_func=lambda x: "Нет" if x == 0 else "Есть")
         state = st.number_input("Состояние (1–5)", min_value=1, max_value=5, value=3)
-        drivetrain = st.number_input("Привод (1–3)", min_value=1, max_value=3, value=2)
+        drivetrain = st.number_input("Привод (1-передний, 2-задний, 3-полный)", min_value=1, max_value=3, value=2)
         is_exchangeable = st.selectbox("Обмен возможен", [0, 1], format_func=lambda x: "Нет" if x == 0 else "Да")
 
     with col3:

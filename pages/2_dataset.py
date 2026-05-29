@@ -69,7 +69,14 @@ st.subheader("Первые строки датасета")
 st.dataframe(df.head(10), use_container_width=True)
 
 st.subheader("Статистика числовых признаков")
-st.dataframe(df.describe().T.round(2), use_container_width=True)
+# 1. Автоматически находим колонки, где всего 2 уникальных значения (0 и 1)
+binary_cols = [col for col in df.select_dtypes(include=['int64', 'int32']).columns if df[col].nunique() == 2]
+
+# 2. Убираем их из датафрейма для расчета статистики
+numeric_df = df.drop(columns=binary_cols)
+
+# 3. Считаем статистику только для честных чисел, переворачиваем и выводим
+st.dataframe(numeric_df.describe().T.round(2), use_container_width=True)
 
 st.subheader("Распределение целевой переменной (price_usd)")
 col1, col2, col3, col4 = st.columns(4)
