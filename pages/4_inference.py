@@ -4,6 +4,9 @@ import numpy as np
 import pickle
 import os
 
+import __main__
+__main__._log1p = np.log1p
+__main__._safe_expm1 = np.expm1
 MODELS = {
     "ML1 — ElasticNet": "models/elasticnet.pkl",
     "ML2 — XGBoost": "models/xgboost.json",
